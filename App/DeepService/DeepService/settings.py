@@ -25,12 +25,16 @@ SECRET_KEY = '+1s4ae^mehqo=8b%)y4@=tt7c3$qx)y6jrrxvg6cmjo=t=%yn1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0","127.0.0.1"]
+ALLOWED_HOSTS = ["0.0.0.0","127.0.0.1","172.26.0.2"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+
+    "rest_framework",
+    "rest_framework_swagger",
+
     "DeepInference",
     'django.contrib.admin',
     'django.contrib.auth',

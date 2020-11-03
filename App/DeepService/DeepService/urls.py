@@ -15,8 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+from rest_framework_swagger.views import get_swagger_view
+from django.conf.urls import url, include
+
+import DeepInference.api
+
+app_name='DeepInference'
+
+router = routers.DefaultRouter()
+router.register('DeepInference', DeepInference.api.MemberViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',include('DeepInference.urls'))
+    url(r'^admin/', admin.site.urls),
+    url(r'^api/doc', get_swagger_view(title='Rest API Document')),
+    url(r'^api/v1/', include((router.urls, 'DeepInference'), namespace='api')),
 ]

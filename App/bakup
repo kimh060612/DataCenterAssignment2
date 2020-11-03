@@ -1,0 +1,15 @@
+web:
+        image: webimg
+        container_name: WebService
+        ports: 
+            - "8000:8000"
+        expose: 
+            - "8000"
+        working_dir: /app
+        volumes: 
+            - ./DeepService:/app/
+        command: 
+            - python3 
+            - manage.py 
+            - runserver 
+            - 0.0.0.0:8000

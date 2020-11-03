@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inference Result</title>
+</head>
+<body>
+    <div class="container">
+        <h1 src="{{ result.class_name }}">Predicted Class: {{ result.class_name }}</h1>
+        <hr>
+        <div>
+            <p src="{{ result.prob }}">{{ result.prob }} is probability of infence result</p>
+          <!--<img src="{{ result.image_path }}" class="img-rounded" width="400" height="200">-->
+        </div>
+        <a href="{{ url_for('index') }}" class="btn btn-default">Back</a>
+    </div>
+</body>
+</html>

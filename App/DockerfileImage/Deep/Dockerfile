@@ -4,5 +4,6 @@ RUN pip3 install django
 RUN pip3 install djangorestframework
 RUN pip3 install django-rest-swagger
 RUN pip3 install Werkzeug
+RUN pip3 install flask
 
 
