@@ -1,0 +1,28 @@
+version: '3.7'
+
+services: 
+    Deep:
+        image: DeepImg
+        container_name: DeepInfer
+        ports: 
+            - "8080:8080"
+        
+    web:
+        image: WebImg
+        container_name: WebService
+        ports: 
+            - "8000:8000"
+        expose: 
+            - "8000"
+        command: 
+            - python3 manage.py runserver localhost:8000
+        volumes: 
+            - ./DeepService/:/app/
+
+    nginx:
+        image: nginx
+        container_name: nginx
+        ports: 
+            - "80:80"
+        expose: 
+            - "80"
