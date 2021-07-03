@@ -1,0 +1,32 @@
+version: '3.7'
+
+services: 
+    Deep:
+        image: deepimg
+        container_name: DeepInfer
+        ports: 
+            - "0.0.0.0:8080:8080"
+        expose: 
+            - "8080"
+        working_dir: /app
+        volumes: 
+            - ./DeepApp:/app/
+        command: 
+            - python3 
+            - app.py
+            
+    web:
+        image: webimg
+        container_name: WebService
+        ports: 
+            - "0.0.0.0:9000:9000"
+        expose: 
+            - "9000"
+        working_dir: /app
+        volumes: 
+            - ./WebService:/app/
+        command: 
+            - python3 
+            - app.py
+        links: 
+            - Deep
